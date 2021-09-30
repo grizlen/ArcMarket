@@ -1,0 +1,30 @@
+<div ng-controller="productsController">
+    <div class="content">
+        <h1>Каталог</h1>
+        <div class="product-list">
+            <div class="product-card" ng-repeat="item in productPage.content">
+                <p>{{item.title}}</p>
+                <p>цена: {{item.price}}</p>
+                <div><button class="list-button" ng-click="addToCart(item.id)">в корзину</button></div>
+            </div>
+        </div>
+    </div>
+    <ul class="page-nav">
+        <li ng-if="productPage.first">
+            <a class="page-nav-btn page-nav-inactive">prev</a>
+        </li>
+        <li ng-if="!productPage.first">
+            <a class="page-nav-btn" ng-click="getProducts(productPage.number - 1)">prev</a>
+        </li>
+        <li ng-repeat="pg in navPages">
+            <a ng-if="pg != productPage.number" class="page-nav-btn" ng-click="getProducts(pg)">{{pg + 1}}</a>
+            <a ng-if="pg == productPage.number" class="page-nav-btn page-nav-current">{{pg + 1}}</a>
+        </li>
+        <li ng-if="productPage.last">
+            <a ng-class="" class="page-nav-btn page-nav-inactive">next</a>
+        </li>
+        <li ng-if="!productPage.last">
+            <a ng-class="" class="page-nav-btn" ng-click="getProducts(productPage.number + 1)">next</a>
+        </li>
+    </ul>
+</div>

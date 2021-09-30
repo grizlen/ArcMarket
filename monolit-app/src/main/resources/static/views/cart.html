@@ -1,0 +1,19 @@
+<div ng-controller="cartController">
+    <div class="content">
+        <h1>Корзина</h1>
+        <ul class="item-list">
+            <li ng-repeat="item in cartObject.items">
+                <div class="product-card">
+                    <p>{{item.productTitle}}</p>
+                    <p>количество: {{item.quantity}}</p>
+                    <p>цена: {{item.price}}</p>
+                    <p>сумма: {{item.amount}}</p>
+                    <div><button class="list-button" ng-click="order(item.id)">оформить заказ</button></div>
+                </div>
+            </li>
+        </ul>
+        <div>
+            <p class="info-text">всего позиций: {{cartObject.count}} на сумму{{cartObject.total}}</p>
+        </div>
+    </div>
+</div>
