@@ -60,7 +60,6 @@ public class CartService {
                 .productTitle(product.getTitle())
                 .quantity(item.getQuantity())
                 .price(product.getPrice())
-                .amount(item.getQuantity() * product.getPrice())
                 .build();
     }
 

@@ -31,7 +31,6 @@ public class OrdersService {
                 .productId(item.getProductId())
                 .productTitle(product.getTitle())
                 .quantity(item.getQuantity())
-                .amount(item.getAmount())
                 .price(item.getPrice())
                 .build();
     }
