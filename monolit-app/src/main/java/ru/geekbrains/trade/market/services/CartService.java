@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.geekbrains.trade.market.models.CartItem;
 import ru.geekbrains.trade.market.models.Product;
 import ru.geekbrains.trade.market.models.dtos.CartItemDTO;
+import ru.geekbrains.trade.market.models.dtos.ProductDTO;
 import ru.geekbrains.trade.market.models.dtos.ProductRequestDTO;
 import ru.geekbrains.trade.market.repositories.CartRepository;
 
@@ -52,7 +53,7 @@ public class CartService {
     }
 
     private CartItemDTO cartItemToDto(CartItem item) {
-        Product product = productService.getById(item.getId());
+        ProductDTO product = productService.getById(item.getId());
         return CartItemDTO.builder()
                 .id(item.getId())
                 .productId(item.getProductId())

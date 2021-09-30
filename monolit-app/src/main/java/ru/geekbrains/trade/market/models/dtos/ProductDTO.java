@@ -1,12 +1,10 @@
 package ru.geekbrains.trade.market.models.dtos;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Builder
 @Getter
-@Setter
-@NoArgsConstructor
 public class ProductDTO {
     private Long id;
     private String title;

@@ -3,7 +3,6 @@ package ru.geekbrains.trade.market.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import ru.geekbrains.trade.market.models.Product;
 import ru.geekbrains.trade.market.models.dtos.ProductDTO;
 import ru.geekbrains.trade.market.services.ProductService;
 
@@ -20,7 +19,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getById(@PathVariable Long id) {
+    public ProductDTO getById(@PathVariable Long id) {
         return productService.getById(id);
     }
 

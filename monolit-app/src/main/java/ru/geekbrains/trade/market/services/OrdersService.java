@@ -6,6 +6,7 @@ import ru.geekbrains.trade.market.models.OrderItem;
 import ru.geekbrains.trade.market.models.Product;
 import ru.geekbrains.trade.market.models.dtos.CartItemDTO;
 import ru.geekbrains.trade.market.models.dtos.OrderItemDTO;
+import ru.geekbrains.trade.market.models.dtos.ProductDTO;
 import ru.geekbrains.trade.market.repositories.OrdersRepository;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class OrdersService {
     }
 
     private OrderItemDTO orderItemToDto(OrderItem item) {
-        Product product = productService.getById(item.getProductId());
+        ProductDTO product = productService.getById(item.getProductId());
         return OrderItemDTO.builder()
                 .id(item.getId())
                 .productId(item.getProductId())
@@ -37,7 +38,7 @@ public class OrdersService {
 
     public void addCartItem(Long cartId) {
         CartItemDTO cartItem = cartService.getCartItem(cartId);
-        Product product = productService.getById(cartItem.getProductId());
+        ProductDTO product = productService.getById(cartItem.getProductId());
         OrderItem item = new OrderItem();
         item.setProductId(cartItem.getProductId());
         item.setQuantity(cartItem.getQuantity());

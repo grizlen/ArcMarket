@@ -23,15 +23,14 @@ public class ProductService {
     }
 
     private ProductDTO productToDTO(Product product) {
-        ProductDTO dto = new ProductDTO();
-        dto.setId(product.getId());
-        dto.setTitle(product.getTitle());
-        dto.setPrice(product.getPrice());
-        return dto;
+        return ProductDTO.builder()
+                .id(product.getId())
+                .title(product.getTitle())
+                .price(product.getPrice())
+                .build();
     }
 
-    // TODO: 28.09.2021 return ProductDTO
-    public Product getById(Long id) {
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product with Id: " + id + "not found."));
+    public ProductDTO getById(Long id) {
+        return productToDTO(productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product with Id: " + id + "not found.")));
     }
 }
