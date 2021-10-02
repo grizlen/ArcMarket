@@ -1,10 +1,8 @@
 package ru.geekbrains.trade.market.models.dtos;
 
-//import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-//@Builder
 public class OrderItemDTO {
     private Long id;
     private long productId;
@@ -15,6 +13,12 @@ public class OrderItemDTO {
 
     public static OrderItemDTOBuilder builder() {
         return new OrderItemDTOBuilder();
+    }
+
+    public static OrderItemDTOBuilder builder(ProductDTO productDTO) {
+        return builder()
+                .productId(productDTO.getId())
+                .productTitle(productDTO.getTitle());
     }
 
     public static class OrderItemDTOBuilder {

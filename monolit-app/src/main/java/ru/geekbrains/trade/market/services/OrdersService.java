@@ -26,10 +26,8 @@ public class OrdersService {
 
     private OrderItemDTO orderItemToDto(OrderItem item) {
         ProductDTO product = productService.getById(item.getProductId());
-        return OrderItemDTO.builder()
+        return OrderItemDTO.builder(product)
                 .id(item.getId())
-                .productId(item.getProductId())
-                .productTitle(product.getTitle())
                 .quantity(item.getQuantity())
                 .price(item.getPrice())
                 .build();
