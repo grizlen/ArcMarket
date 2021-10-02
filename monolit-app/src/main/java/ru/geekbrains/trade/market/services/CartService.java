@@ -54,13 +54,9 @@ public class CartService {
 
     private CartItemDTO cartItemToDto(CartItem item) {
         ProductDTO product = productService.getById(item.getId());
-        return CartItemDTO.builder()
+        return CartItemDTO.builder(product)
                 .id(item.getId())
-                .productId(item.getProductId())
-                .productTitle(product.getTitle())
                 .quantity(item.getQuantity())
-                .price(product.getPrice())
-                .amount(item.getQuantity() * product.getPrice())
                 .build();
     }
 
